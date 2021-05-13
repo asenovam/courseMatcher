@@ -1,0 +1,270 @@
+/*
+
+Zoom Template
+
+http://www.templatemo.com/tm-414-zoom
+
+*/
+
+body, html { overflow-x:hidden; }
+
+h1{
+     font-family: font-family:'Cairo';  font-weight: 600;   color:#39e600;      font-size:26px;
+    
+}
+body {
+    background-color: purple;
+    font-size: 20px;
+    line-height: 1.4;
+   <!-- font-family: 'Cairo';-->
+    font-style: normal; 
+    -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+    -webkit-text-size-adjust: 100%;
+}
+
+ h2, h3, h4, h5,h6,span,input type{ font-family:'Cairo';  font-weight: 600;   color: #140033;      font-size:24px;}
+
+    
+
+
+.purple { color:  #140033; }
+
+.green { color: #CF0; }
+
+.button{
+    color:darkgreen;
+     font-size: 18px;
+}
+
+
+h2 {
+	padding: 10px 0;
+                color:black;
+}
+
+p {
+	padding: 10px 0;
+	text-align: justify;
+                color:  #140033; 
+                 font-size: 24px;
+                
+}
+
+a {
+	color:#c0f777;
+                font-weight: 600;
+                font-size: 23px;
+}
+
+a:hover {
+	color: #F60;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #140033;
+    margin: 1em 0;
+    padding: 0;
+}
+
+img {
+    vertical-align: middle;
+}
+/* Preloader */
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color:#140033; /* change if the mask should have another color then white */
+    z-index: 99; /* makes sure it stays on top */
+}
+
+#status {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 50%; /* centers the loading animation horizontally one the screen */
+    top: 50%; /* centers the loading animation vertically one the screen */
+    background-image: url(../images/status.gif); /* path to your loading animation */
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: -100px 0 0 -100px; /* is width and height divided by two */
+}
+
+/*general*/
+#main-wrapper {
+     overflow: hidden;
+}
+
+.templatemo-logo {
+	z-index: 1;
+}
+.templatemo-site-title { 
+    color: #140033 !important; 
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 1);
+}
+
+.templatemo-site-title a {
+	color: #140033;
+	text-decoration: none;
+}
+
+.templatemo-site-title a:hover {
+	text-decoration: none;
+}
+
+
+img.slide {
+    width: 100%; 
+    z-index: -9999999; 
+    position: absolute;
+}
+
+.active {
+    display: block;
+}
+
+.inactive {
+    /* left: 703px; */
+    display: none;
+}
+
+.image-section {
+    position: fixed;
+}
+
+.image-container {
+    position: relative;
+}
+
+.image-container img {
+    position: absolute;
+}
+
+.templatemo-content {
+    position: static;
+    overflow: hidden; 
+    margin-top: 20%;
+    padding-bottom: 6%;
+}
+
+.black-bg {
+    background-color: #ADFF2F;
+}
+.black-bg:before, .black-bg:after {
+    content: "";
+    display: table;
+    line-height: 0;
+}
+.black-bg:after {
+    clear: both;
+}
+    
+.templatemo-content section {
+    font-family: 'Cairo';
+    position: relative; 
+    overflow: hidden;
+    top: 0; 
+    padding-bottom: 20px;
+}
+
+
+.templatemo-content-wrapper {
+    overflow:hidden;
+}
+
+.templatemo-content h2 {
+    color:#140033;
+    font-family:  'Cairo';
+    
+}
+
+.templatemo-content p {
+    font-family:  'Cairo';
+    color: #fff;
+    font-size: 16px;
+}
+
+#map-canvas {
+	height: 260px;
+}
+
+
+.footer {
+    overflow:hidden; 
+    position:fixed; 
+    bottom: 10px;
+}
+
+.footer-text {
+    font-family: 'Cairo'; 
+    color:#000000; 
+    text-shadow: 0px 2px 3px rgba(0, 0, 0, 1);
+    margin-left: 30px;
+    font-size: 14px;
+}
+
+.margin-top-20 {
+    margin-top: 20px;
+}
+
+.margin-bottom-20 {
+    margin-bottom: 20px;
+}
+
+.btn-menu {
+    padding: 25px 0;
+    text-align: center;
+}
+
+.btn-menu > .fa {
+    font-size: 50px;
+    margin: 25px 0;
+}
+.btn-menu > h2 {
+    margin: 0;
+    font-size: 25px;
+}
+
+.change-section {
+    color:#140033;
+    text-decoration: none;
+}
+
+.change-section .black-bg {
+    transition: all 0.4s ease;
+}
+
+.change-section .black-bg > h2 {
+    transition: all 0.4s ease;
+}
+
+.change-section:hover {
+    text-decoration: none;
+    color: #246BB2;
+}
+
+.change-section:hover .black-bg {
+    background-color: rgba(0,255,0,0.3);
+}
+
+.change-section:hover .black-bg > h2 {
+    color: #05f063;
+}
+
+@media (max-width: 991px) {
+    .footer {
+        overflow:hidden; 
+        position:static;
+        text-align: center;
+    }
+    
+    .footer-text {
+        margin-left: 0;  
+    }
+}

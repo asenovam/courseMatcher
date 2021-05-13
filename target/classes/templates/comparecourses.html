@@ -1,0 +1,171 @@
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Getting Started: Serving Web Content</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/templatemo_main.css">
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <style>
+            body{
+                background-color:#7B68EE;
+            }
+            h1{
+                font-family: 'Brush Script MT', cursive;  font-weight: 600;   color:#39e600;      font-size:42px;
+
+            }
+           a{font-size: 30px; color: #b2e617; font-family: serif;
+        }</style>
+
+    </head>
+
+    <body>
+        <div id="main-wrapper">
+
+            <div class="image-section">
+                <div class="image-container">
+                    <img src="images/zoom-bg-1.jpg" id="searchbycourse-img" class="main-img inactive" alt="Zoom HTML5 Template by templatemo.com">
+                    <img src="images/zoom-bg-2.jpg" id="products-img" class="inactive" alt="Product">
+                    <img src="images/zoom-bg-3.jpg" id="services-img"  class="inactive" alt="Services">
+                    <img src="images/zoom-bg-4.jpg" id="about-img" class="inactive" alt="About">
+                    <img src="images/zoom-bg-5.jpg" id="contact-img" class="inactive" alt="Contact">
+                    <img src="images/zoom-bg-6.jpg" id="company-intro-img" class="main-img inactive" alt="Company Intro">
+                    <img src="images/zoom-bg-7.jpg" id="testimonials-img" class="main-img inactive" alt="Testimonials">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right templatemo-logo margin-top-0">
+
+
+                <a href="/login">Login</a>
+                <a href="/register">Register</a>
+
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-left templatemo-logo margin-top-20">
+
+                <h1 class="templatemo-site-title">
+                    <h1>StudentSmart</h1>
+
+                    <a href="/survey"> Take a survey</a>
+
+                    <div th:if="${compareCoursesBean.nickname != null && !compareCoursesBean.nickname.isEmpty()}">
+                        <a th:href="@{'/userdashboard?nickname=' + ${compareCoursesBean.nickname}}">My dashboard</a>
+                        <a th:href="@{'/searchbycourse?nickname=' + ${compareCoursesBean.nickname}}">Course search</a>                           
+                    </div>
+
+                    <div th:if="${compareCoursesBean.nickname == null || compareCoursesBean.nickname.isEmpty()}">
+                        <a href="/searchbycourse">Course search</a>
+                    </div>
+
+                </h1>
+            </div>
+
+            <div th:if="${course1 != null && course2 != null}">
+                <div class="container">
+                    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 templatemo-content-wrapper">
+                        <div class="templatemo-content">
+                            <section id="menu-section" class="active">
+                                <div style="height:300px; width:50%" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 margin-bottom-30">
+                                    <div href="#company-intro" class="change-section">
+                                        <div class="black-bg btn-menu">
+                                            <h2><span  th:text="${course1.title}"/> </h2>
+                                            <h2><span  th:text="${course1.universityName}"/> </h2>
+                                            <form th:action="@{addcourse}" th:object="${compareCoursesBean}" method="post">
+                                                <input type="hidden" th:value="${course1.id}" name="myCourse" />
+                                                <input type="hidden" th:value="${course1.id + ',' + course2.id}" name="selectedCourses" />
+                                                <input type="hidden" th:value="${compareCoursesBean.nickname}" name="nickname" />
+
+                                                <button type="submit" class="btn btn-primary">
+                                                    <i class="fas fa-heart" style="font-size:48px;color:red;"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="height:400px; width:50%" class="col-xs-12 col-sm-10 col-md-6 col-lg-6 margin-bottom-30">
+                                    <div href="#company-intro" class="change-section">
+                                        <div class="black-bg btn-menu">
+                                            <h2><span  th:text="${course2.title}"/></h2>
+                                            <h2><span  th:text="${course2.universityName}"/> </h2>
+
+                                            <form th:action="@{addcourse}" th:object="${compareCoursesBean}" method="post">
+                                                <input type="hidden" th:value="${course2.id}" name="myCourse" />
+                                                <input type="hidden" th:value="${course1.id + ',' + course2.id}" name="selectedCourses" />
+                                                <input type="hidden" th:value="${compareCoursesBean.nickname}" name="nickname" />
+
+                                                <button type="submit" class="btn btn-primary">
+                                                    <i class="fas fa-heart" style="font-size:48px;color:red;"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 margin-bottom-20">
+                                    <div th:if="${course1.modules != null && course1.modules.size() > 0}"> 
+                                        <div th:each="module: ${course1.modules}">
+                                            <div href="#company-intro" class="change-section">
+
+                                                <div class="black-bg btn-menu"  th:style="'background-color:  ' + @{${module.color}} + ';'">
+                                                    <h2><span th:text="${module.name}"/></h2>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                    <!-- ELSE -->
+                                    <div th:if="${course1.modules == null ||  course1.modules.size() == 0}">
+                                        <div style="background-color:  green"><h2>Modules are available per request. You need to order prospectus on the link</h2>
+                                            <a th:href="@{${course1.url}}"  target="_blank" ><span th:text="${course1.title}"/></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-10 col-md-6 col-lg-6 margin-bottom-20">
+
+                                    <div th:if="${course2.modules != null && course2.modules.size() > 0}"> 
+                                        <div th:each="module: ${course2.modules}">
+                                            <div href="#company-intro" class="change-section">
+                                                <div class="black-bg btn-menu"   th:style="'background-color:  ' + @{${module.color}} + ';'">
+                                                    <h2><span th:text="${module.name}"/></h2>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                    <!-- ELSE -->
+                                    <div th:if="${course2.modules == null ||  course2.modules.size() == 0}">
+                                        <div style="background-color:  aquamarine"><h2>Modules are available per request. You need to order prospectus on the link</h2>
+                                            <a th:href="@{${course2.url}}"  target="_blank" ><span th:text="${course2.title}"/> </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </section>
+                        </div>                    
+                    </div>
+                </div>
+            </div>
+            <div th:if="${course1 == null && course2 == null}">
+                <div class="container">
+
+                    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 templatemo-content-wrapper">
+                        <div class="templatemo-content">
+                            <h2 style="background-color: aquamarine;">  Please select at least 2 courses are required in order to compare them </h2>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+
+        </div>
+
+        <div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 1937px; width: 2256px; z-index: -999999; position: fixed;">
+            <img src="" style="position: absolute; margin: 0px; padding: 0px; border: none; width: 2561.67px; height:1937px; max-height: none; max-width: none; z-index: -999999; left: -152.833px; top: 0px;">
+        </div>
+
+        <!--   <script src="js/jquery.min.js"></script> -->
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/jquery.backstretch.min.js"></script>
+        <script src="js/templatemo_script.js"></script>
+    </body>
+</html>

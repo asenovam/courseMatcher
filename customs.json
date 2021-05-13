@@ -1,0 +1,11 @@
+{
+    "elements": {},
+    "attributes": {
+        "color": {
+            "context": "a"
+        },
+        "href": {
+            "context": "h1"
+        }
+    }
+}

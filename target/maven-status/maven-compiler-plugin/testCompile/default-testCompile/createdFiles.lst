@@ -1,0 +1,6 @@
+co\uk\city\london\builder\EntityCourseBuilder.class
+co\uk\city\london\RegisterConverterTest.class
+co\uk\city\london\controllers\CoursesControllerTest.class
+co\uk\city\london\builder\CourseBeanBuilder.class
+co\uk\city\london\SurveyBeanToEntityConverterTest.class
+co\uk\city\london\services\ModuleComparatorTest.class

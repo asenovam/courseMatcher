@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Getting Started: Serving Web Content</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/templatemo_main.css">
+        <style>
+            body{
+                background-color:#7B68EE;
+            }
+            h1{
+                font-family: 'Brush Script MT', cursive;  font-weight: 600;   color:#39e600;      font-size:42px;
+
+            }   a{font-size: 30px; color: #b2e617; font-family: serif;
+            }</style>
+
+    </head>
+
+    <body>
+        <div id="main-wrapper">
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right templatemo-logo margin-top-0">
+                <a href="/login">Login</a>
+                <a href="/register">Register</a>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-left templatemo-logo margin-top-20">
+                <h1 class="templatemo-site-title">
+                    <h1> StudentSmart</h1>
+                    <br></br>
+                    <a href="/survey"> Take a survey</a>
+                    <br></br>
+                    <div th:if="${search.nickname != null  && !search.nickname.isEmpty()}">
+                        <a th:href="@{'/userdashboard?nickname=' + ${search.nickname}}">My dashboard</a>
+                    </div>
+            </div>
+                        
+            <div class="container">
+                <div class="col-xs-12 col-sm-12 col-md-14 col-lg-14 col-md-offset-0 col-lg-offset-0 templatemo-content-wrapper">
+                    <div class="templatemo-content">
+                        <section id="contact-section" class="inactive active" style="display: block;">
+                            <div class="row">
+                                <div class="black-bg col-sm-12 col-md-12 col-lg-12">
+                                    <h2 class="text-center">You can compare 2 courses</h2>
+                                    <div class="col-sm-12 col-md-12">
+                                        <p th:text="${search.errorMesssage}" />        
+                                    </div>
+
+                                    <div class="col-sm-12 col-md-12 margin-bottom-20">
+
+
+                                        <form action="#" th:action="@{/searchbycourse}" th:object="${search}" method="post">
+                                            <div class="form-group">
+                                                <input type="text"  class="form-control" font-size:20px; placeholder="Enter course name" th:field="*{courseTitle}" />
+                                                       <input type="hidden" th:value="${search.nickname}" name="nickname" />
+
+                                                <input type="radio" id="option1" font-size:20px; name="option1" class="custom-control-input" value="BACHELOR" th:field="*{universityDegree}">
+                                                       <label class="custom-control-label" for="option1">Bachelor courses</label>
+                                                <input type="radio" id="option2"  font-size:20px; name="option2" class="custom-control-input" value="MASTER" th:field="*{universityDegree}">
+                                                       <label class="custom-control-label" for="option2">Master courses</label>
+
+                                                <button type="submit" class="btn btn-primary">Search</button>
+                                            </div>
+                                        </form>
+
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="products-section" class="inactive active" style="display: block;">
+
+                            <form th:action="@{comparecourses}" th:object="${selectedCourses}" method="post">
+                                <input type="hidden" th:value="${search.nickname}" name="nickname" />
+
+                                <th:block th:each="item : ${courses}">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-6 col-lg-6 margin-bottom-20">
+                                            <div class="black-bg col-sm-12 col-md-12 col-lg-12">
+                                                <p><a th:href="@{${item.url}}"  target="_blank" ><span th:text="${item.title}"/></a>
+                                                    <input type="checkbox" th:field="*{selectedCourses}" th:value="${item.id}" />
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 col-lg-6">
+                                            <div class="black-bg col-sm-12 col-md-12 col-lg-12">
+                                                <p><span th:text="${item.universityName}"/></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </th:block>
+
+                                <p><input type="submit" class="btn btn-primary" value="Compare" /></p>
+                            </form>
+
+                        </section> 
+
+                        <!--
+                      <section  th:each="item : ${courses}" id="products-section" class="inactive active" style="display: block;">
+                          
+                         <div class="row">
+                             <div class="col-sm-6 col-md-6 col-lg-6 margin-bottom-20">
+                                 <div class="black-bg col-sm-12 col-md-12 col-lg-12">
+                                     <p><a th:href="@{${item.url}}"  target="_blank" ><span th:text="${item.title}"/></a></p>
+                                 </div>
+                             </div>
+                             <div class="col-sm-6 col-md-6 col-lg-6">
+                                 <div class="black-bg col-sm-12 col-md-12 col-lg-12">
+                                     <p<span th:text="${item.universityName}"/></p>
+                                  </div>
+                             </div>
+                         </div>
+                         
+                     </section>  
+                        -->
+
+                    </div>                    
+                </div>
+            </div>
+        </div>
+
+        <div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 1937px; width: 2256px; z-index: -999999; position: fixed;">
+            <img src="" style="position: absolute; margin: 0px; padding: 0px; border: none; width: 2561.67px; height: 2937px; max-height: none; max-width: none; z-index: -999999; left: -152.833px; top: 0px;">
+        </div>
+
+        <!--   <script src="js/jquery.min.js"></script> -->
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/jquery.backstretch.min.js"></script>
+        <script src="js/templatemo_script.js"></script>
+    </body>
+</html>

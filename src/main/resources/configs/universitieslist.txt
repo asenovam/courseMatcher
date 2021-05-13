@@ -1,0 +1,9 @@
+University Of York|https://www.york.ac.uk/study/undergraduate/courses/all,https://www.york.ac.uk/study/postgraduate/courses/all
+Kingston University|https://www.kingston.ac.uk/courses/find-a-course/undergraduate/advanced-search/,https://www.kingston.ac.uk/courses/find-a-course/postgraduate/advanced-search/
+Gloucestershire University|https://www.glos.ac.uk/study/pages/course-finder.aspx?studyLevel=undergraduate&subjectArea=null&schoolCode=null#courseFinder
+AWE Bristol|https://www.uwe.ac.uk/courses/find-a-course/postgraduate-courses
+University Of Wolverhampton|https://www.wlv.ac.uk/a-z/
+NUI Galway|http://www.nuigalway.ie/courses/undergraduate-courses/,http://www.nuigalway.ie/courses/taught-postgraduate-courses/
+Newcastle University|https://www.ncl.ac.uk/undergraduate/degrees/?filterBy=undergraduate&q=&searchSubmit=Search, https://www.ncl.ac.uk/postgraduate/courses/#a-z
+Lancaster University|https://www.lancaster.ac.uk/study/undergraduate/courses/,https://www.lancaster.ac.uk/study/postgraduate/postgraduate-courses/
+University Of Birmingham|https://www.bcu.ac.uk/courses/search?term=&intake=2021-22

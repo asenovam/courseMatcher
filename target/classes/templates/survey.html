@@ -1,0 +1,296 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/templatemo_main.css">
+        <style>
+            body{
+                background-color:#7B68EE;
+            }
+            h1{
+                font-family: 'Brush Script MT', cursive;  font-weight: 600;   color:#39e600;      font-size:42px;
+
+            }p{
+                padding-right: 30px;
+                padding-left: 80px;
+            }
+            h3{
+                color: black; font-family:  "Gill Sans", sans-serif; font-size: 18px;
+            }
+
+        </style>
+
+    </head>
+    <body>
+        <div id="main-wrapper">
+
+            <div class="image-section">
+                <div class="image-container">
+                    <img src="images/zoom-bg-1.jpg" id="searchbycourse-img" class="main-img inactive" alt="Zoom HTML5 Template by templatemo.com">
+                    <img src="images/zoom-bg-2.jpg" id="products-img" class="inactive" alt="Product">
+                    <img src="images/zoom-bg-3.jpg" id="services-img"  class="inactive" alt="Services">
+                    <img src="images/zoom-bg-4.jpg" id="about-img" class="inactive" alt="About">
+                    <img src="images/zoom-bg-5.jpg" id="contact-img" class="inactive" alt="Contact">
+                    <img src="images/zoom-bg-6.jpg" id="company-intro-img" class="main-img inactive" alt="Company Intro">
+                    <img src="images/zoom-bg-7.jpg" id="testimonials-img" class="main-img inactive" alt="Testimonials">
+                </div>
+            </div>
+            <a href="/login">Log in </a>
+            <a href="/register">Register</a>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-left templatemo-logo margin-top-20">
+                <h1 class="templatemo-site-title">
+                    <h1> StudentSmart</h1>
+
+            </div>
+           
+            <div  class="container">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-10 col-md-offset-2 col-lg-offset-2 templatemo-content-wrapper">
+                    <div class="templatemo-content">
+                        <section id="contact-section" class="inactive active" style="display: block;">
+                            <div class="row">
+                                <div class="black-bg col-sm-12 col-md-12 col-lg-12">
+                                    <h3 class="text-center">Thank you for coming here and taking the survey. This will help us a lot for improving the work on this project</h3>
+                                    <div class="col-sm-12 col-md-12">
+                                        <p style="color:red; font-size: 150%;" th:text="${survey.errorMessage}" />        
+                                    </div>
+                                     
+                                    <div class="col-sm-12 col-md-12">
+                                        <p style="color:red; font-size: 150%;" th:text="${survey.thankMessage}" />        
+                                    </div>
+                                    <div class="col-sm-12 col-md-12 margin-bottom-20">
+                                  
+                                        <p style="color:black;">This survey is about testing a web application whose aim is to provide information about and compare modules of different courses provided by UK universities to students. The application has been created to help students navigate through different university courses in one place easily without having to do separate searches in every university’s website and attempt manual evaluations whilst trying to choose which course to enrol to. The purpose of the study is to evaluate how useful and helpful the application is. The participants will be provided with a prototype of the system in order to be able to test it and explore the different features available from it. After doing so, participants will be provided with a questionnaire where they can provide feedback and evaluate the web application based on their experience with the use of it. 
+This survey will not collect any personal data for you (e.g., your name, date of birth or address). Following the signing of the consent form, to participate in the study, you will be given a unique number (token) with which you will be able to access the system. You should keep a record of the token that you will be given so that to be able to request the deletion of the responses that you provided to the survey subsequently if you decide to do it. Hence, you will have the right to withdraw your participation at any time. You will also be able to use this token in order to be able to retrieve the outcomes of the study if you wish.
+The token that you will be given will be linked to the email address that you provide below until the completion of the study. Following it, the association between the token and the email address below will be deleted. 
+</p>
+                                        
+                                        <form action="#" th:action="@{/survey}" th:object="${survey}" method="post">
+                                             <input type="hidden" th:value="${survey.token}" name="token" />
+                                               <h3 class="text-center">Consent form</h3>
+                                      
+                                              <div class="form-group">
+                                                    <p style="color:black">I confirm that I have read and understood the participant information sheet Participant information sheet, 07/12/2020, Revision 02 for the above study. I have had the opportunity to consider the information in the information sheet and ask questions. My questions were answered satisfactorily.
+                                                        <input type="checkbox" id="cpi" th:field="*{confirmParticipentInfo}" />
+                                                    </p>
+                                              </div>
+                                            
+                                            <div class="form-group">
+                                                <p style="color:black">I understand that my participation is voluntary and that I am free to withdraw without giving a reason without being penalised or disadvantaged
+                                                    <input type="checkbox" id="cv" th:field="*{confirmVoluntary}" />
+                                                </p>
+                                            </div>  
+                                            <div class="form-group">
+                                                <p style="color:black">I understand that I will be able to withdraw my data up to the submission of this study.
+                                                    <input type="checkbox" id="cdw" th:field="*{confirmDataWithdraw}" />
+                                                </p>
+                                            </div>
+                                            <div class="form-group">
+                                                <p style="color:black">I agree to City recording and processing this information about me. I understand that this information will be used only for the purpose(s) explained in the participant information and my consent is conditional on City complying with its duties and obligations under the General Data Protection Regulation (GDPR).
+                                                    <input type="checkbox" id="cr" th:field="*{confirmRecording}" />
+                                                </p>
+                                            </div>
+                                            <div class="form-group">
+                                                <p style="color:black">I would like to be informed of the results of this study once it has been completed and understand that my contact details will be retained for this purpose. 
+                                                    <input type="checkbox" id="cbi" th:field="*{confirmBeInformed}" />
+                                                </p>
+                                            </div> 
+                                            <div class="form-group">
+                                                <p style="color:black">I agree to take part in the above study.
+                                                    <input type="checkbox" id="cbp" th:field="*{confirmBePart}" />
+                                                </p>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <p style="color:black;">Are you agree to proceed ?
+                                                    <select th:field="*{agreeToProceed}">
+                                                        <option th:value="Yes">Yes, I agree to proceed</option>
+                                                        <option th:value="No">No, I dont agree to proceed</option>
+                                                    </select>
+                                                </p>
+                                            </div>
+                                            
+                                            
+                                             <h3 class="text-center">Survey form</h3>
+                                      
+                                            <div class="form-group">
+                                                <p style="color:black;">1.      What type of course were you looking for (please select any that apply)?
+                                                    <select th:field="*{typeOfCourse}">
+                                                        <option th:value="Postgraduate">Postgraduate</option>
+                                                        <option th:value="Undergraduate">Undergraduate</option>
+                                                        <option th:value="ProfessionalDevelopment">Continual professional development</option>
+                                                        <option th:value="Other">Other</option>
+                                                    </select>
+                                                </p>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <p style="color:black;">2. How much time did you spend using the web site before answering this questionnaire?
+                                                    <select th:field="*{spentTime}">
+                                                        <option th:value="less1house">Less than 1 hour</option>
+                                                        <option th:value="btw1and2hours">Between 1 and 2 hours</option>
+                                                        <option th:value="moreThan2hours">More than 2 hours</option>
+                                                    </select>
+                                                </p>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <p style="color:black;">3.  How easy was to use the web site in general?
+                                                    	Please answer on a scale from 1 to 5 (1: not easy at all; 5: very easy)
+                                                    <select th:field="*{easeOfUse}">
+                                                        <option th:value="1" th:text="1"></option>
+                                                        <option th:value="2" th:text="2"></option>
+                                                        <option th:value="3" th:text="3"></option>
+                                                        <option th:value="4" th:text="4"></option>
+                                                        <option th:value="5" th:text="5"></option>
+                                                    </select>
+                                                </p>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <p style="color:black;">4. Did you find the information you need?
+                                                    Please answer on a scale from 1 to 5 as 1 is the lowest and 5 is the highest. 
+                                                    <select th:field="*{findInfo}">
+                                                        <option th:value="1" th:text="1"></option>
+                                                        <option th:value="2" th:text="2"></option>
+                                                        <option th:value="3" th:text="3"></option>
+                                                        <option th:value="4" th:text="4"></option>
+                                                        <option th:value="5" th:text="5"></option>
+                                                    </select>
+                                                  </p>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <p style="color:black;">5.	What were the most useful aspect of the comparison function (open text question)?
+                                                    <input type="text" class="form-control" th:field="*{usefullAspects}" />
+                                                </p>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <p style="color:black;">6. Was the course comparison function of the web site useful?
+                                                    Please answer on a scale from 1 to 5 as 1 is the lowest and 5 is the highest. 
+                                                    <select th:field="*{isCompareUseful}">
+                                                        <option th:value="1" th:text="1"></option>
+                                                        <option th:value="2" th:text="2"></option>
+                                                        <option th:value="3" th:text="3"></option>
+                                                        <option th:value="4" th:text="4"></option>
+                                                        <option th:value="5" th:text="5"></option>
+                                                    </select>
+                                                  </p>    
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <p style="color:black;"> 7. What was the weakest aspect of the comparison function (open text question)?
+                                                    <input type="text" class="form-control" th:field="*{weakestAspect}" />
+                                                </p>
+                                            </div>
+                                            
+                                            
+                                            <div class="form-group">
+                                                <p style="color:black;">8.	Have you used any other web site for finding and comparing information about university courses before this one?
+                                                    <select th:field="*{usageOfOtherSite}">
+                                                        <option th:value="Yes">Yes</option>
+                                                        <option th:value="No">No</option>
+                                                    </select>
+                                                </p>    
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <p style="color:black;"> 9. If yes, please provide the name(s) of similar web sites that you have used (open text).
+                                                    <input type="text" class="form-control" th:field="*{similerWebSites}" />
+                                                </p>
+                                            </div>
+                                            
+                                             <div class="form-group">
+                                                <p style="color:black;">10.  If your answer to Q4 was “Yes”, how does this web site compare to other sites that you have used for finding university course information?
+                                                    <select th:field="*{compOtherSites}">
+                                                        <option th:value="1" th:text="1"></option>
+                                                        <option th:value="2" th:text="2"></option>
+                                                        <option th:value="3" th:text="3"></option>
+                                                        <option th:value="4" th:text="4"></option>
+                                                        <option th:value="5" th:text="5"></option>
+                                                    </select>
+                                                  </p>    
+                                            </div>
+                                            
+                                            
+                                            <div class="form-group">
+                                                <p style="color:black;"> 11.	Would you recommend to others using this the web site for finding and comparing information about university course?                                       
+                                                      <select th:field="*{wouldYouRecommend}">
+                                                        <option th:value="1" th:text="1"></option>
+                                                        <option th:value="2" th:text="2"></option>
+                                                        <option th:value="3" th:text="3"></option>
+                                                        <option th:value="4" th:text="4"></option>
+                                                        <option th:value="5" th:text="5"></option>
+                                                    </select>
+                                                </p>    
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <p style="color:black;"> 12.      What was the most difficult aspect of the web site to use (open text)?
+                                                    <input type="text" class="form-control" th:field="*{diffParties}" />
+                                                </p>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <p style="color:black;"> 13.	What was the easiest aspect of the web site to use (open text)?
+                                                    <input type="text" class="form-control" th:field="*{easyParties}" />
+                                                </p>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <p style="color:black;">14.    Did you face any technical issues?
+                                                    <select th:field="*{anyTechnicalIssues}">
+                                                        <option th:value="Yes" th:text="Yes"></option>
+                                                        <option th:value="No" th:text="No"></option>
+                                                     </select>  
+                                                </p>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <p style="color:black;">14.	If yes, please describe the problem. (text box question)
+                                                    <input type="text" class="form-control"   th:field="*{techIssues}" />
+                                                </p>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <p style="color:black;">15.Are there other applications like this one you have come across?
+                                                     <select th:field="*{isOtherAppLikeThis}">
+                                                        <option th:value="Yes" th:text="Yes"></option>
+                                                        <option th:value="No" th:text="No"></option>
+                                                     </select>  
+                                                </p>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <p style="color:black;">16.	 If yes, please share the name of it.
+                                                    <input type="text" class="form-control"   th:field="*{shareName}" />
+                                                </p>
+                                            </div>
+                                            
+                                            <div class="form-group">    
+                                                <button type="submit" class="btn btn-primary">Save</button>
+                                            </div>
+                                        </form>
+
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 1937px; width: 2256px; z-index: -999999; position: fixed;">
+            <img src="" style="position: absolute; margin: 0px; padding: 0px; border: none; width: 2561.67px; height:1937px; max-height: none; max-width: none; z-index: -999999; left: -152.833px; top: 0px;">
+        </div>
+
+    </body>
+</html>

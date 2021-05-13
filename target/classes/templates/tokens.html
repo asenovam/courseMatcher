@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Getting Started: Handling Form Submission</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
+        <style>
+            body{
+                background-color:#7B68EE;
+            }
+            h1{
+                font-family: 'Brush Script MT', cursive;  font-weight: 600;   color:#39e600;      font-size:42px;
+
+            }   a{font-size: 30px; color: #b2e617; font-family: serif;
+        }</style> 
+    </head>
+
+
+    <body>
+  
+         <div  class="container">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 templatemo-content-wrapper">
+                    <div class="templatemo-content">
+                        <section id="contact-section" class="inactive active" style="display: block;">
+                            <div class="row">
+                                <div class="black-bg col-sm-12 col-md-12 col-lg-12">
+                                    <h2 class="text-center">All tokens</h2>
+                                    
+
+                                    <div class="col-sm-12 col-md-12 margin-bottom-20">
+                                       <th:block th:each="item : ${tokens}">
+                                              <div class="row">
+                                                   <span th:text="${item.token}"/>        <span th:text="${item.isUsed}"/>
+                                            </div>
+                                        </div>
+                                     </th:block>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6 col-lg-6">
+                                         <form action="/generateToken" method="get">
+                                                <button name="subject" type="submit" value="Generate token">Generate new token</button>
+                                         </form>
+                                     </div>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        
+    </body>
+    
+  </html>
